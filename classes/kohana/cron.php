@@ -95,7 +95,7 @@ class Kohana_Cron
 	 */
 	protected static function _load()
 	{
-		Cron::$_times = Kohana::cache("Cron::run()");
+		Cron::$_times = Kohana::cache("Cron::run()", null, Kohana::$config->load('cron')->cache_lifetime);
 	}
 
 	/**
@@ -142,7 +142,7 @@ class Kohana_Cron
 	 */
 	protected static function _save()
 	{
-		Kohana::cache("Cron::run()", Cron::$_times, Kohana::$config->load('cron')->window * 2);
+		Kohana::cache("Cron::run()", Cron::$_times, Kohana::$config->load('cron')->cache_lifetime);
 	}
 
 	/**
