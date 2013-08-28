@@ -25,4 +25,6 @@ return array
 	 * your tasks.
 	 */
 	'window' => 300,
+    // The lifetime of cache
+    'cache_lifetime' => 60*60*48,
 );
